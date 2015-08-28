@@ -12,23 +12,7 @@ Yii::$app->view->registerCssFile('css/form.css');
 
 ?>
 
-<div class="list_form_road">
-    <div class="list_form_road_div">
-        <span class="list_form_road_lock">1</span>
-        <p>选择类目(房屋>ddd 重选)</p>
-    </div>
-    <div class="list_form_road_gt"></div>
-    <div class="list_form_road_div">
-        <span class="list_form_road_lock">2</span>
-        <p>填写信息</p>
-    </div>
-    <div class="list_form_road_gt"></div>
-    <div class="list_form_road_div">
-        <span>3</span>
-        <p>完成发布</p>
-    </div>
-    <div class="clear"></div>
-</div>
+<?= $this->render('_road', ['model' => $model,'view' => $view,'id' => $id,]) ?>
 
 <div class="list_form_background">
     <img src="<?= Url::base() ?>/images/list_form_right_bg.png" alt="" class="list_form_right_bg" />

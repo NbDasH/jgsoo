@@ -87,13 +87,14 @@ class InfoController extends Controller
             $model->user_id = 1;
         }
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())){ // && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             $view = Info::get_view($id);
             return $this->render('create', [
                 'model' => $model,
                 'view' => $view,
+				'id' => $id
             ]);
         }
     }

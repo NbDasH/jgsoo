@@ -11,9 +11,12 @@ $this->params['breadcrumbs'][] = ['label' => 'Infos', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="info-create">
-
+	<!--<?= $view; ?>-->
+    <?php //exit(); ?>
     <?= $this->render($view.'_form', [
         'model' => $model,
+		'view' => $view,
+		'id' => $id,
     ]) ?>
 
 </div>

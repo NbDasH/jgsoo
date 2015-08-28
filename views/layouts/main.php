@@ -72,11 +72,11 @@ AppAsset::register($this);
     <div class="index_nav">
         <div class="index_inner_nav">
             <?= Html::a('首页', ['site/index']) ?>
-            <?= Html::a('头条活动', ['category/index']) ?>
-            <?= Html::a('租房', ['view']) ?>
-            <?= Html::a('二手车', ['view']) ?>
-            <?= Html::a('本地服务', ['view']) ?>
-            <?= Html::a('联系我们', ['view']) ?>
+            <?= Html::a('头条活动', ['site/index']) ?>
+            <?= Html::a('租房', ['site/index']) ?>
+            <?= Html::a('二手车', ['site/index']) ?>
+            <?= Html::a('本地服务', ['site/index']) ?>
+            <?= Html::a('联系我们', ['site/index']) ?>
         </div>
     </div>
     <div style="background:white; padding:20px 0 20px 0;">
@@ -88,7 +88,7 @@ AppAsset::register($this);
 
 <div class="foot">
     <div class="inner_footer">
-        <div>©2003-2015 520jgs.com, All Rights Reserved.　　本站发布的所有内容，未经许可，不得转载，详见《知识产权声明》、《用户使用协议》</div>
+        <div>©2015 jgsoo.com, All Rights Reserved.　　本站发布的所有内容，未经许可，不得转载，详见《知识产权声明》、《用户使用协议》</div>
         <div>增值电信业务经营许可证：赣B2-20040012　　互联网地图服务资质：乙测资字31202063</div>
     </div>
 </div>
