@@ -24,7 +24,7 @@
 .index_head{ width: 1200px; height: 120px;  margin: 0 auto;} /*background:url("../images/title.jpg");*/
 .index_nav{ width:1200px; height: 40px; border-bottom: #ff3d29 3px solid; margin: 0 auto;}
 .index_inner_nav{width: 1200px; height: 40px; margin: 0 auto;}
-.index_inner_nav a{ display: block; float: left; height: 40px; line-height: 40px; padding: 0 10px; font-weight: 800; text-decoration: none; color: #000; font-size: 17px;}
+.index_inner_nav a{ display: block; float: left; height: 40px; line-height: 40px; padding: 0 10px; font-weight: 800; text-decoration: none; color: #fff; font-size: 17px; background:#ff3d29;}
 .index_inner_nav a:hover{ background: #efefef; color: orange; text-decoration: none;}
 
 .index_main{ width: 1200px; min-height: 400px; margin: 0 auto;}
