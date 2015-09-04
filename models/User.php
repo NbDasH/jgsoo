@@ -47,11 +47,11 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
-            'password' => 'Password',
-            'password_confirm' => 'Password Confirm',
-            'email' => 'Email',
-            'phone' => 'Phone',
+            'name' => '用户名',
+            'password' => '密 码',
+            'password_confirm' => '密码验证',
+            'email' => '邮箱',
+            'phone' => '电话',
         ];
     }
 

@@ -31,6 +31,16 @@ class LoginForm extends Model
             ['password', 'validatePassword'],
         ];
     }
+	
+	public function attributeLabels()
+    {
+        return [
+            'id' => 'ID',
+            'username' => '用户名',
+            'password' => '密 码',
+            'rememberMe' => '下次自动登陆',
+        ];
+    }
 
     /**
      * Validates the password.
