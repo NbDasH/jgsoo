@@ -71,7 +71,7 @@ AppAsset::register($this);
 
     <div class="index_nav">
         <div class="index_inner_nav">
-            <?= Html::a('首页', ['site/index']) ?>
+            <?= Html::a('首1111页', ['site/index']) ?>
             <?= Html::a('招聘求职', ['site/index']) ?>
             <?= Html::a('租房', ['site/index']) ?>
             <?= Html::a('二手房', ['site/index']) ?>
