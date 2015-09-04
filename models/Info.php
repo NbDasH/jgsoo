@@ -179,6 +179,23 @@ class Info extends \yii\db\ActiveRecord
                     'other3' => '其他描述3',
                 ];
                 break;
+			case 6:
+                return [
+                    'title' => '标题',
+                    'price' => '价格',
+					'identity' => '身份',
+                    'addr' => '服务范围',
+                    'name' => '联系人',
+                    'phone' => '联系电话',
+                    'wechat' => 'QQ',
+                    'content' => '服务介绍',
+                    'photo' => '店铺外貌',
+					'select1' => '类别',
+                    'other1' => '其他描述',
+                    'other2' => '其他描述2',
+                    'other3' => '其他描述3',
+                ];
+                break;
 			default:
                 return [
                     'id' => 'ID',

@@ -27,34 +27,6 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
 
 <div class="wrap">
-    <!--
-    <?php
-    NavBar::begin([
-        'brandLabel' => 'My Company',
-        'brandUrl' => Yii::$app->homeUrl,
-        'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
-        ],
-    ]);
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
-        'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'Contact', 'url' => ['/site/contact']],
-            Yii::$app->user->isGuest ?
-                ['label' => 'Login', 'url' => ['/site/login']] :
-                [
-                    'label' => 'Logout (' . Yii::$app->user->identity->name . ')',
-                    'url' => ['/site/logout'],
-                    'linkOptions' => ['data-method' => 'post']
-                ],
-        ],
-    ]);
-    NavBar::end();
-    ?>
--->
-
     <div class="index_head">
         <?= Html::a('<img class="logo" src="'.Url::base().'/images/logo.png" width="100px" />', ['site/index']) ?>
         <div class="search_div">
@@ -71,7 +43,7 @@ AppAsset::register($this);
 
     <div class="index_nav">
         <div class="index_inner_nav">
-            <?= Html::a('首1111页', ['site/index']) ?>
+            <?= Html::a('首页', ['site/index']) ?>
             <?= Html::a('招聘求职', ['site/index']) ?>
             <?= Html::a('租房', ['site/index']) ?>
             <?= Html::a('二手房', ['site/index']) ?>
