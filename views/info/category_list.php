@@ -11,7 +11,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="info-index">
 
-    <?php foreach($categories as $v){ ?>
+    <?php foreach($categories as $v){ if($v->id != 141){ ?>
         <div>
             <p>
                 <?= Html::a($v->name, ['category_second_list','id'=>$v->id], ['class' => 'btn']); ?>
@@ -22,7 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?php } ?>
             </p>
         </div>
-    <?php } ?>
+    <?php }} ?>
     
 
 </div>

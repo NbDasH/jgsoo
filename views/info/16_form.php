@@ -28,7 +28,7 @@ Yii::$app->view->registerCssFile('css/form.css');
     <h3 class="list_form_h3">基本信息</h3>
     <hr />
 
-    <?php $model->type = 1; ?>
+    <?php $model->type = 9; ?>
     <?php $form = ActiveForm::begin([
         'fieldConfig' => ['template' => "<div class='list_form_top'>".
                                             "<div class='list_form_label'>{label}</div>".
@@ -37,7 +37,7 @@ Yii::$app->view->registerCssFile('css/form.css');
                                             "<div class='clear'></div>".
                                         "</div>"],
     ]); ?>
-    <?= $form->field($model, 'type')->radioList(['1'=>'出售','2'=>'求购']) ?>
+    <?= $form->field($model, 'type')->radioList(['1'=>'出租','2'=>'求租']) ?>
     <?php ActiveForm::end(); ?>
 
 
@@ -53,31 +53,23 @@ Yii::$app->view->registerCssFile('css/form.css');
 
         <?= $form->field($model, 'title')->textInput(['maxlength' => true,'class'=>'form-control list_form_title'])->label('<span>*</span> 标题'); ?>
 
-        <?= $form->field($model, 'identity')->radioList(['个人'=>'个人','中介'=>'中介'])->label('<span>*</span> 身份');  ?>
+        <?= $form->field($model, 'addr')->textarea(['rows' => 3]);  ?>
 
-        <?= $form->field($model, 'addr')->textarea(['rows' => 3])->label('<span>*</span> 详细地址');  ?>
+        <?= $form->field($model, 'house_type')->dropDownList([''=>'','1室0厅1卫'=>'1室0厅1卫','1室1厅1卫'=>'1室1厅1卫','2室1厅1卫'=>'2室1厅1卫','2室2厅1卫'=>'2室2厅1卫','2室2厅2卫'=>'2室2厅2卫','3室1厅1卫'=>'3室1厅1卫','3室2厅1卫'=>'3室2厅1卫','3室2厅2卫'=>'3室2厅2卫','4室及以上'=>'4室及以上']);  ?>
 
-        <?= $form->field($model, 'house_type')->dropDownList([''=>'','1室0厅1卫'=>'1室0厅1卫','1室1厅1卫'=>'1室1厅1卫','2室1厅1卫'=>'2室1厅1卫','2室2厅1卫'=>'2室2厅1卫','2室2厅2卫'=>'2室2厅2卫','3室1厅1卫'=>'3室1厅1卫','3室2厅1卫'=>'3室2厅1卫','3室2厅2卫'=>'3室2厅2卫','4室及以上'=>'4室及以上'])->label('<span>*</span> 房屋户型');  ?>
-
-        <?= $form->field($model, 'area')->textInput()->hint('㎡')->label('<span>*</span> 建筑面积'); ?>
+        <?= $form->field($model, 'area')->textInput()->hint('㎡'); ?>
 
         <?= $form->field($model, 'feature')->dropDownList([''=>'','毛坯房'=>'毛坯房','简单装修'=>'简单装修','中等装修'=>'中等装修','精装修'=>'精装修','豪华装修'=>'豪华装修']) ?>
-        
-        <?= $form->field($model, 'house_direction')->dropDownList([''=>'','东'=>'东','西'=>'西','南'=>'南','北'=>'北','东西'=>'东西','南北'=>'南北','东南'=>'东南','西北'=>'西北','东北'=>'东北','西南'=>'西南']) ?>
-
-        <?= $form->field($model, 'propert_right')->dropDownList([''=>'','商品房'=>'商品房','商住两用'=>'商住两用','经济适用房'=>'经济适用房','使用权'=>'使用权','公房'=>'公房'])->label('<span>*</span> 产权'); ?>
-
-        <?= $form->field($model, 'propert_right_time')->dropDownList([''=>'','70年产权'=>'70年产权','50年产权'=>'50年产权','40年产权'=>'40年产权']); ?>
 
         <?= $form->field($model, 'all_floor')->textInput()->hint('层'); ?>
 
         <?= $form->field($model, 'floor')->textInput()->hint('层'); ?>
 
-        <?= $form->field($model, 'price')->textInput()->hint('万')->label('<span>*</span> 总价');  ?>
+        <?= $form->field($model, 'price')->textInput()->hint('万');  ?>
 
-        <?= $form->field($model, 'name')->textInput(['maxlength' => true])->label('<span>*</span> 联系人');  ?>
+        <?= $form->field($model, 'name')->textInput(['maxlength' => true]);  ?>
 
-        <?= $form->field($model, 'phone')->textInput()->label('<span>*</span> 联系电话');  ?>
+        <?= $form->field($model, 'phone')->textInput();  ?>
 
         <?= $form->field($model, 'wechat')->textInput(['maxlength' => true]) ?>
 
@@ -119,31 +111,25 @@ Yii::$app->view->registerCssFile('css/form.css');
                                             "</div>"],
         ]); ?>
 
-        <?php $model->type = 2; ?>
+        <?php $model->type = 10; ?>
 
-        <?= $form->field($model, 'title')->textInput(['maxlength' => true,'class'=>'form-control list_form_title'])->label('<span>*</span> 标题'); ; ?>
+        <?= $form->field($model, 'title')->textInput(['maxlength' => true,'class'=>'form-control list_form_title'])->label('<span>*</span> 标题'); ?>
 
-        <?= $form->field($model, 'identity')->radioList(['个人'=>'个人','中介'=>'中介'])->label('<span>*</span> 身份'); ?>
+        <?= $form->field($model, 'addr')->textarea(['rows' => 3]);  ?>
 
-        <?= $form->field($model, 'addr')->textarea(['rows' => 3])->label('<span>*</span> 期望居住地');  ?>
+        <?= $form->field($model, 'house_type')->dropDownList([''=>'','1室0厅1卫'=>'1室0厅1卫','1室1厅1卫'=>'1室1厅1卫','2室1厅1卫'=>'2室1厅1卫','2室2厅1卫'=>'2室2厅1卫','2室2厅2卫'=>'2室2厅2卫','3室1厅1卫'=>'3室1厅1卫','3室2厅1卫'=>'3室2厅1卫','3室2厅2卫'=>'3室2厅2卫','4室及以上'=>'4室及以上']);  ?>
 
-        <?= $form->field($model, 'house_type')->dropDownList([''=>'','1室0厅1卫'=>'1室0厅1卫','1室1厅1卫'=>'1室1厅1卫','2室1厅1卫'=>'2室1厅1卫','2室2厅1卫'=>'2室2厅1卫','2室2厅2卫'=>'2室2厅2卫','3室1厅1卫'=>'3室1厅1卫','3室2厅1卫'=>'3室2厅1卫','3室2厅2卫'=>'3室2厅2卫','4室及以上'=>'4室及以上'])->label('<span>*</span> 期望户型');  ?>
+        <?= $form->field($model, 'area')->textInput()->hint('㎡'); ?>
 
-        <?= $form->field($model, 'area')->textInput()->hint('㎡')->label('<span>*</span> 期望面积'); ?>
+        <?= $form->field($model, 'price')->textInput()->hint('万');  ?>
 
-        <?= $form->field($model, 'propert_right')->dropDownList([''=>'','商品房'=>'商品房','商住两用'=>'商住两用','经济适用房'=>'经济适用房','使用权'=>'使用权','公房'=>'公房'])->label('<span>*</span> 期望产权');  ?>
+        <?= $form->field($model, 'name')->textInput(['maxlength' => true]);  ?>
 
-        <?= $form->field($model, 'price')->textInput()->hint('万')->label('<span>*</span> 期望价格');  ?>
-
-        <?= $form->field($model, 'name')->textInput(['maxlength' => true])->label('<span>*</span> 联系人');  ?>
-
-        <?= $form->field($model, 'phone')->textInput()->label('<span>*</span> 联系电话');  ?>
+        <?= $form->field($model, 'phone')->textInput();  ?>
 
         <?= $form->field($model, 'wechat')->textInput(['maxlength' => true]) ?>
 
-        <?= $form->field($model, 'content')->textarea(['rows' => 6]) ?>
-
-         <h3 class="list_form_h3">补充信息</h3>
+        <h3 class="list_form_h3">补充信息</h3>
         <hr />
 
         <?= $form->field($model, 'other1')->textarea(['rows' => 2]) ?>

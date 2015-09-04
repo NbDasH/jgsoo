@@ -196,6 +196,203 @@ class Info extends \yii\db\ActiveRecord
                     'other3' => '其他描述3',
                 ];
                 break;
+			case 7:
+                return [
+                    'id' => 'ID',
+                    'title' => '标题',
+                    'price' => '价格',
+                    'addr' => '服务范围',
+                    'name' => '联系人',
+                    'phone' => '联系电话',
+                    'photo' => '汽车外貌',
+                    'select1' => '类别',
+                    'select2' => '起点',
+                    'select3' => '终点',
+                    'select4' => '出发时间',
+                    'select5' => '车型',
+                    'select6' => '可乘数',
+                    'other1' => '其他描述',
+                    'other2' => '其他描述2',
+                    'other3' => '其他描述3',
+                    'user_id' => 'User ID',
+                    'category_id' => 'Category ID',
+                    'time' => 'Time',
+					'type'=>'供求',
+                ];
+                break;
+			case 8:
+                return [
+                    'id' => 'ID',
+                    'title' => '标题',
+                    'price' => '期望价格',
+                    'addr' => 'addr',
+                    'name' => '联系人',
+                    'phone' => '联系电话',
+                    'photo' => 'photo',
+                    'select1' => '起点',
+                    'select2' => '终点',
+                    'select3' => '出发时间',
+                    'select4' => 'Select4',
+                    'select5' => 'Select5',
+                    'select6' => 'Select6',
+                    'other1' => '其他描述',
+                    'other2' => '其他描述2',
+                    'other3' => '其他描述3',
+                    'user_id' => 'User ID',
+                    'category_id' => 'Category ID',
+                    'time' => 'Time',
+					'type'=>'供求',
+                ];
+                break;
+			case 9:
+                return [
+                    'id' => 'ID',
+                    'title' => '标题',
+                    'price' => '租金',
+                    'addr' => '小区/商圈/地址',
+                    'name' => '联系人',
+                    'phone' => '联系电话',
+                    'wechat' => 'QQ',
+                    'content' => '房源描述',
+                    'photo' => '房间内、大门、外部环境',
+                    'type' => '供求',
+                    'house_type' => '房屋户型',
+                    'area' => '建筑面积',
+                    'floor' => '楼层',
+                    'all_floor' => '总楼层',
+                    'feature' => '装修情况',
+                    'other1' => '其他描述',
+                    'other2' => '其他描述2',
+                    'other3' => '其他描述3',
+                    'user_id' => 'User ID',
+                    'category_id' => 'Category ID',
+                    'time' => 'Time',
+                ];
+                break;
+			case 10:
+                return [
+                    'id' => 'ID',
+                    'title' => '标题',
+                    'price' => '期望租金',
+                    'addr' => '求租地段',
+                    'name' => '联系人',
+                    'phone' => '联系电话',
+                    'wechat' => 'QQ',
+                    'content' => 'content',
+                    'photo' => 'photo',
+                    'type' => '供求',
+                    'house_type' => '期望户型',
+                    'area' => '期望面积',
+                    'floor' => 'floor',
+                    'all_floor' => 'all_floor',
+                    'other1' => '其他描述',
+                    'other2' => '其他描述2',
+                    'other3' => '其他描述3',
+                    'user_id' => 'User ID',
+                    'category_id' => 'Category ID',
+                    'time' => 'Time',
+                ];
+                break;
+			case 11:
+                return [
+                    'id' => 'ID',
+                    'title' => '标题',
+                    'price' => '价格',
+                    'addr' => '交易地址',
+                    'name' => '联系人',
+                    'phone' => '联系电话',
+                    'wechat' => 'QQ',
+                    'content' => '服务介绍',
+                    'photo' => '宠物图片',
+                    'identity' => '身份',
+                    'type' => 'type',
+                    'select1' => '品种',
+                    'select2' => '性别',
+                    'other1' => '其他描述',
+                    'other2' => '其他描述2',
+                    'other3' => '其他描述3',
+                    'user_id' => 'User ID',
+                    'category_id' => 'Category ID',
+                    'time' => 'Time',
+                ];
+                break;
+			case 12:
+                return [
+                    'id' => 'ID',
+                    'title' => '公司名称',
+                    'price' => '薪资',
+                    'addr' => '公司地址',
+                    'name' => '联系人',
+                    'phone' => '联系电话',
+                    'wechat' => 'QQ',
+                    'content' => '公司介绍',
+                    'identity' => '身份',
+					'select1' => 'select1',
+                    'other1' => '其他描述',
+                    'other2' => '其他描述2',
+                    'other3' => '其他描述3',
+                    'user_id' => 'User ID',
+                    'category_id' => 'Category ID',
+                    'time' => 'Time',
+                ];
+                break;
+			case 13:
+                return [
+                    'id' => 'ID',
+                    'title' => '期望职位',
+                    'price' => '期望薪资',
+                    'addr' => '期望工作地址',
+                    'name' => '个人姓名',
+                    'phone' => '联系电话',
+                    'wechat' => 'QQ',
+                    'content' => '个人简介',
+                    'identity' => '身份',
+                    'select1' => '现居住地',
+                    'other1' => '其他描述',
+                    'other2' => '其他描述2',
+                    'other3' => '其他描述3',
+                    'user_id' => 'User ID',
+                    'category_id' => 'Category ID',
+                    'time' => 'Time',
+                ];
+                break;
+			case 14:
+                return [
+                    'id' => 'ID',
+                    'title' => '标题',
+                    'price' => '价格',
+                    'addr' => '服务范围',
+                    'name' => '联系人',
+                    'phone' => '联系电话',
+                    'other1' => '其他描述',
+                    'other2' => '其他描述2',
+                    'other3' => '其他描述3',
+                    'user_id' => 'User ID',
+                    'category_id' => 'Category ID',
+                    'time' => 'Time',
+                ];
+                break;
+			case 15:
+                return [
+					'type' => '供求',
+                    'title' => '标题',
+                    'price' => '价格',
+                    'addr' => '交易地点',
+                    'name' => '联系人',
+                    'phone' => '联系电话',
+                    'wechat' => 'QQ',
+                    'content' => '描述',
+                    'photo' => '图片',
+					'identity' => '身份',
+					'select1' => '类别',
+					'select1' => '品牌',
+                    'select2' => '型号',
+                    'select3' => '新旧程度',
+                    'other1' => '其他描述',
+                    'other2' => '其他描述2',
+                    'other3' => '其他描述3',
+                ];
+                break;
 			default:
                 return [
                     'id' => 'ID',
