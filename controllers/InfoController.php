@@ -18,7 +18,7 @@ class InfoController extends Controller
 
     public function actionCategory_list()
     {
-        $categories = Category::get_second_title();
+        $categories = Category::get_root_title();
         return $this->render('category_list', [
             'categories' => $categories,
         ]);

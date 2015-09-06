@@ -26,44 +26,42 @@ AppAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 
-<div class="wrap">
-    <div class="index_head">
-        <?= Html::a('<img class="logo" src="'.Url::base().'/images/logo.png" width="100px" />', ['site/index']) ?>
-        <div class="search_div">
-            <form>
-                <input type="text" name="search" class="search_input" value="找房子找工作找装修" />
-                <input type="button" value="搜 索" class="search_btn" />
-            </form>
-        </div>
-        <div class="top_add_div">
-            <?= Html::a('免费发布信息', ['info/category_list'],['class'=>'top_add_btn']) ?>
-            <?= Html::a('修改／删除信息', ['site/index']) ?>
-        </div>
-    </div>
+<div class="index_head">
+	<?= Html::a('<img class="logo" src="'.Url::base().'/images/logo.png" width="100px" />', ['site/index']) ?>
+	<div class="search_div">
+		<form>
+			<input type="text" name="search" class="search_input" value="找房子找工作找装修" />
+			<input type="button" value="搜 索" class="search_btn" />
+		</form>
+	</div>
+	<div class="top_add_div">
+		<?= Html::a('免费发布信息', ['info/category_list'],['class'=>'top_add_btn']) ?>
+		<?= Html::a('修改／删除信息', ['site/index']) ?>
+	</div>
+</div>
 
-    <div class="index_nav">
-        <div class="index_inner_nav">
-            <?= Html::a('首页', ['site/index']) ?>
-            <?= Html::a('招聘求职', ['site/index']) ?>
-            <?= Html::a('租房', ['site/index']) ?>
-            <?= Html::a('二手房', ['site/index']) ?>
-            <?= Html::a('二手车', ['site/index']) ?>
-            <?= Html::a('新房', ['site/index']) ?>
-            <?= Html::a('跳蚤市场', ['site/index']) ?>
-            <?= Html::a('宠物', ['site/index']) ?>
-        </div>
-    </div>
-    <div style="background:white; padding:20px 0 20px 0;">
-        <div style="width:1200px;margin:0 auto;">
-            <?= $content ?>
-        </div>
-    </div>
+<div class="index_nav">
+	<div class="index_inner_nav">
+		<?= Html::a('首页', ['site/index']) ?>
+		<?= Html::a('招聘求职', ['site/index']) ?>
+		<?= Html::a('租房', ['site/index']) ?>
+		<?= Html::a('二手房', ['site/index']) ?>
+		<?= Html::a('二手车', ['site/index']) ?>
+		<?= Html::a('新房', ['site/index']) ?>
+		<?= Html::a('跳蚤市场', ['site/index']) ?>
+		<?= Html::a('宠物', ['site/index']) ?>
+	</div>
+</div>
+<div style="background:white; padding:20px 0 20px 0;">
+	<div style="width:1200px;margin:0 auto;">
+		<?= $content ?>
+	</div>
 </div>
 
 <div class="foot">
     <div class="inner_footer">
-        <div>©2015 jgsoo.com, All Rights Reserved.　　本站发布的所有内容，未经许可，不得转载，详见《知识产权声明》、《用户使用协议》</div>
-        <div>增值电信业务经营许可证：赣B2-20040012　　互联网地图服务资质：乙测资字31202063 Email:dash@jgsoo.com jgsyu@jgsoo.com</div>
+        <div>©2015 jgsoo.com, All Rights Reserved. 本站发布的所有内容，未经许可，不得转载，详见《知识产权声明》、《用户使用协议》</div>
+        <div>增值电信业务经营许可证：赣B2-20040012 互联网地图服务资质：乙测资字31202063 Email:<a href="mailto:dash@jgsoo.com">dash@jgsoo.com</a> <a href="mailto:jgsyu@jgsoo.com">jgsyu@jgsoo.com</a></div>
     </div>
 </div>
 

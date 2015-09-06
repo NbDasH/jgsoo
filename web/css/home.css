@@ -80,8 +80,30 @@
 .inner_footer div{ text-align: center; font-size: 11px; color: #333; padding: 5px;}
 
 
+.info_index{ min-height:500px;}
+.info_left{ float:left; width:600px; position:relative;}
+.info_right{ float:right; width:600px; position:relative;}
+
+.info_left > div{ width:100px;}
+.info_left > div a{ display:block;}
+.info_left > div p a{ float:left;}
+.info_left > div:hover{ background:#ff3d29;}
+.info_left > div:hover a{ color:#fff;}
+.info_left > div:hover p{ display:block;}
+.info_left > div:hover p a{ color:#333; text-decoration:underline;}
+
+.info_right > div{ width:100px;}
+.info_right > div a{ display:block;}
+.info_right > div p a{ float:left;}
+.info_right > div:hover{ background:#ff3d29;}
+.info_right > div:hover a{ color:#fff;}
+.info_right > div:hover p{ display:block;}
+.info_right > div:hover p a{ color:#333; text-decoration:underline;}
+
+.info_left_p,.info_right_p{ position:absolute; z-index:0; width:500px; left:100px; top:0; display:none; height:350px; background:#eee;}
+
+
+
 
 *{ font-family: "微软雅黑","Arail";transition:all 0.3s ease;box-sizing:content-box;}
 img{ border: none;}
-body{ /*background: #f1ebdd;*/}
-.warp{ background-color: none;}
