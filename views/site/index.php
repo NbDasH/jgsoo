@@ -5,7 +5,7 @@ use app\models\Category;
 use yii\helpers\Html;
 use yii\helpers\Url;
 
-$this->title = 'Home';
+$this->title = '井冈搜-打造井冈山最专业的信息网站';
 ?>
 
 

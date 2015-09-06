@@ -27,35 +27,11 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
 
 <div class="wrap">
-    <!--
-    <?php
-    NavBar::begin([
-        'brandLabel' => 'My Company',
-        'brandUrl' => Yii::$app->homeUrl,
-        'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
-        ],
-    ]);
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
-        'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'Contact', 'url' => ['/site/contact']],
-            Yii::$app->user->isGuest ?
-                ['label' => 'Login', 'url' => ['/site/login']] :
-                [
-                    'label' => 'Logout (' . Yii::$app->user->identity->name . ')',
-                    'url' => ['/site/logout'],
-                    'linkOptions' => ['data-method' => 'post']
-                ],
-        ],
-    ]);
-    NavBar::end();
-    ?>
--->
 
     <div class="index_head">
+		<div class="top_menu">
+			
+		</div>
         <!--
         <?= Html::a('<img class="logo" src="'.Url::base().'/images/logo.png" width="100px" />', ['site/index']) ?>
         <div class="search_div">
@@ -89,6 +65,7 @@ AppAsset::register($this);
 
 <div class="foot">
     <div class="inner_footer">
+		<div>http://route.showapi.com/9-4?showapi_appid=8234&showapi_sign=2058a9b7e9e348b7b2990d756a20c719&showapi_timestamp=<?php echo date('YmdHis') ?>&ip=182.254.220.136</div>
         <div>2015 jgsoo.com, All Rights Reserved.　　本站发布的所有内容，未经许可，不得转载，详见《知识产权声明》、《用户使用协议》</div>
         <div>增值电信业务经营许可证：赣B2-20040012　　互联网地图服务资质：乙测资字31202063</div>
     </div>
