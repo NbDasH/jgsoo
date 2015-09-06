@@ -1,4 +1,6 @@
 <?php
+$data = json_decode(file_get_contents("http://route.showapi.com/9-4?showapi_appid=8234&showapi_sign=2058a9b7e9e348b7b2990d756a20c719&showapi_timestamp=".date('YmdHis')."&ip=".Yii::$app->request->userIP));
+print_r($data);
 
 /* @var $this \yii\web\View */
 /* @var $content string */
@@ -65,7 +67,6 @@ AppAsset::register($this);
 
 <div class="foot">
     <div class="inner_footer">
-		<div>http://route.showapi.com/9-4?showapi_appid=8234&showapi_sign=2058a9b7e9e348b7b2990d756a20c719&showapi_timestamp=<?php echo date('YmdHis') ?>&ip=182.254.220.136</div>
         <div>2015 jgsoo.com, All Rights Reserved.　　本站发布的所有内容，未经许可，不得转载，详见《知识产权声明》、《用户使用协议》</div>
         <div>增值电信业务经营许可证：赣B2-20040012　　互联网地图服务资质：乙测资字31202063</div>
     </div>
