@@ -1,7 +1,6 @@
 <?php
-$data = json_decode(file_get_contents("http://route.showapi.com/9-4?showapi_appid=8234&showapi_sign=2058a9b7e9e348b7b2990d756a20c719&showapi_timestamp=".date('YmdHis')."&ip=".Yii::$app->request->userIP));
-print_r($data);
-
+$weather = json_decode(file_get_contents("http://route.showapi.com/9-4?showapi_appid=8234&showapi_sign=2058a9b7e9e348b7b2990d756a20c719&showapi_timestamp=".date('YmdHis')."&ip=".Yii::$app->request->userIP));
+//.Yii::$app->request->userIP
 /* @var $this \yii\web\View */
 /* @var $content string */
 
@@ -32,7 +31,8 @@ AppAsset::register($this);
 
     <div class="index_head">
 		<div class="top_menu">
-			
+        	<img src="<?= $weather->showapi_res_body->now->weather_pic ?>" />
+			<?= $weather->showapi_res_body->now->aqiDetail->area.'---'.$weather->showapi_res_body->now->weather; ?>
 		</div>
         <!--
         <?= Html::a('<img class="logo" src="'.Url::base().'/images/logo.png" width="100px" />', ['site/index']) ?>
