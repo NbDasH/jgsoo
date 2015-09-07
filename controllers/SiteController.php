@@ -69,8 +69,9 @@ class SiteController extends Controller
 
     public function actionLogout()
     {
+		$url = Yii::$app->user->getReturnUrl();
         Yii::$app->user->logout();
-        return $this->redirect(Yii::$app->user->getReturnUrl());
+        return $this->redirect($url);
     }
 
     public function actionContact()

@@ -18,6 +18,7 @@ class InfoController extends Controller
 
     public function actionCategory_list()
     {
+		$this->layout = 'create_list';
         $categories = Category::get_root_title();
         return $this->render('category_list', [
             'categories' => $categories,
@@ -26,6 +27,7 @@ class InfoController extends Controller
 
     public function actionCategory_second_list($id)
     {
+		$this->layout = 'create_list';
         $categories = Category::get_third_title($id);
         return $this->render('category_second_list', [
             'categories' => $categories,

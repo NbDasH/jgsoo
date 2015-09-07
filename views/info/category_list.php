@@ -9,6 +9,7 @@ use yii\grid\GridView;
 $this->title = 'Infos';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+<?= $this->render('_list_road') ?>
 <div class="info_index">
 	<div class="info_left">
 		 <?php foreach($categories[0]->categories as $v){ if($v->id != 141){ ?>
