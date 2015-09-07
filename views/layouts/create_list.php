@@ -85,7 +85,7 @@ AppAsset::register($this);
 
 	<?php Yii::$app->view->registerJs('
     $(document).ready(function(){
-		$.getJSON("'.Url::to(['weather/getweather','ip'=>(Yii::$app->request->userIP=='::1'?'219.137.228.66':Yii::$app->request->userIP)]).'",function(data){
+		$.getJSON("'.Url::to(['weather/getweather','ip'=>(in_array(Yii::$app->request->userIP,['::1','127.0.0.1','localhost']) ?'219.137.228.66':Yii::$app->request->userIP)]).'",function(data){
 			$(".weather").html(
 			"<image src=\""+data.showapi_res_body.now.weather_pic+"\" height=\"30\" width=\"30\" /> "+
 			data.showapi_res_body.now.aqiDetail.area+" "+
