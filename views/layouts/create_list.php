@@ -1,5 +1,5 @@
 <?php
-$weather = json_decode(file_get_contents("http://route.showapi.com/9-4?showapi_appid=8234&showapi_sign=2058a9b7e9e348b7b2990d756a20c719&showapi_timestamp=".date('YmdHis')."&ip=".Yii::$app->request->userIP));
+//$weather = json_decode(file_get_contents("http://route.showapi.com/9-4?showapi_appid=8234&showapi_sign=2058a9b7e9e348b7b2990d756a20c719&showapi_timestamp=".date('YmdHis')."&ip=".Yii::$app->request->userIP));
 //.Yii::$app->request->userIP
 /* @var $this \yii\web\View */
 /* @var $content string */
@@ -31,8 +31,9 @@ AppAsset::register($this);
 
     <div class="index_head">
 		<div class="top_menu">
-        	<img src="<?= $weather->showapi_res_body->now->weather_pic ?>" />
-			<?= $weather->showapi_res_body->now->aqiDetail->area.'---'.$weather->showapi_res_body->now->weather; ?>
+        	<div class="weather">
+				天气载入中...
+			</div>
 		</div>
         <!--
         <?= Html::a('<img class="logo" src="'.Url::base().'/images/logo.png" width="100px" />', ['site/index']) ?>
@@ -71,6 +72,21 @@ AppAsset::register($this);
         <div>增值电信业务经营许可证：赣B2-20040012　　互联网地图服务资质：乙测资字31202063</div>
     </div>
 </div>
+
+	<?php Yii::$app->view->registerJs('
+    $(document).ready(function(){
+		$.getJSON("'.Url::to(['weather/getweather','ip'=>(Yii::$app->request->userIP=='::1'?'219.137.228.66':Yii::$app->request->userIP)]).'",function(data){
+			$(".weather").html(
+			"<image src=\""+data.showapi_res_body.now.weather_pic+"\" height=\"30\" width=\"30\" /> "+
+			data.showapi_res_body.now.aqiDetail.area+" "+
+			data.showapi_res_body.now.weather+" 实时温度:"+
+			data.showapi_res_body.now.temperature+"℃"
+			);
+			console.log(data);
+		});
+	});
+	');?>
+
 
 <?php $this->endBody() ?>
 </body>
