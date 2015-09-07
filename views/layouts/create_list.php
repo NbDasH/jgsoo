@@ -34,6 +34,16 @@ AppAsset::register($this);
         	<div class="weather">
 				天气载入中...
 			</div>
+			<div class="top_login">
+			<?php if(Yii::$app->user->isGuest){ ?>
+				您好,请<?= Html::a('[登录]',['site/login'],['class'=>'top_login_btn']); ?> &nbsp; <?= Html::a('免费注册',['user/create'],['class'=>'top_login_btn']); ?>
+			<?php }else{ ?>
+				您好,<?= Yii::$app->user->Identity->name; ?> 欢迎回来。 <?= Html::a('[注销]',['site/logout'],['class'=>'top_login_btn']); ?>
+			<?php } ?>
+			</div>
+			<div class="top_nav">
+				<?= Yii::$app->user->setReturnUrl(Url::current()); ?>
+			</div>
 		</div>
         <!--
         <?= Html::a('<img class="logo" src="'.Url::base().'/images/logo.png" width="100px" />', ['site/index']) ?>
