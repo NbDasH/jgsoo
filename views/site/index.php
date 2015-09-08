@@ -61,7 +61,7 @@ $this->title = '井冈搜-打造井冈山最专业的信息网站';
             <div class="user_inf">
                 <img class="user_img" src="<?= Url::base(); ?>/images/user_default.jpg" alt="" />
                 <p>Hi!你好 <?= Yii::$app->user->isGuest ? '' : Yii::$app->user->identity->name ?></p>
-                <p>欢迎来到井冈网</p>
+                <p>欢迎来到井冈搜</p>
                 <?= Yii::$app->user->isGuest ? Html::a('<img src="'.Url::base().'/images/login_btn_bg.png" alt="" height="20" width="20" style="margin:-4px 10px 0 -15px;" />用户登录', ['site/login'],['class'=>'login_btn']) : ''; ?>
                 <?= !Yii::$app->user->isGuest ? Html::a('<img src="'.Url::base().'/images/login_btn_bg.png" alt="" height="20" width="20" style="margin:-4px 10px 0 -15px;" />注销', ['site/logout'],['class'=>'login_btn']) : ''; ?>
                 <div class="clear"></div>

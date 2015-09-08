@@ -43,6 +43,7 @@ AppAsset::register($this);
 		</div>
 		<div class="top_nav">
 			<ul>
+				<?php if(!Yii::$app->user->isGuest){ ?>
 				<li>
 					<?= Html::a('我的井冈搜',['site/index']) ?>
 					<ul>
@@ -54,8 +55,10 @@ AppAsset::register($this);
 					</ul>
 				</li>
 				<li><?= Html::a('个人中心',['site/index']) ?></li>
+				<?php } ?>
 				<li><?= Html::a('商户推广',['site/index']) ?></li>
 				<li><?= Html::a('联系我们',['site/index']) ?></li>
+				<li><?= Html::a('[收藏本站]',['site/index']) ?></li>
 			</ul>
 		</div>
 	</div>
@@ -89,8 +92,8 @@ AppAsset::register($this);
 	</div>
 </div>
 -->
-<div style="background:#eee; padding:20px 0 20px 0;">
-		<?= $content ?>
+<div style="background:#eee; padding:20px 0 20px 0; min-width:1200px;">
+	<?= $content ?>
 </div>
 
 <div class="foot">
