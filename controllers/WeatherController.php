@@ -27,6 +27,7 @@ class WeatherController extends Controller
     }
 	
 	public function actionGetweather($ip){
+		/*
 		$city = json_decode(file_get_contents("http://route.showapi.com/20-1?showapi_appid=8234&showapi_sign=2058a9b7e9e348b7b2990d756a20c719&showapi_timestamp=".date('YmdHis')."&ip=".$ip))->showapi_res_body->city;
 		
 		$w = Weather::find()->where(['city'=>$city])->one();
@@ -49,8 +50,9 @@ class WeatherController extends Controller
 				$weather = $w->json_data;
 			}	
 		}
+		*/
 		
-		echo $weather;
+		echo file_get_contents("http://route.showapi.com/9-4?showapi_appid=8234&showapi_sign=2058a9b7e9e348b7b2990d756a20c719&showapi_timestamp=".date('YmdHis')."&ip=".$ip);;
 	}
 
     /**
