@@ -28,7 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
 						<?= Html::a($v2->name, ['create','id'=>$v2->id], ['class' => 'btn']); ?>
 					<?php } ?>
 				</p>
-				<?= Html::a($v->name, ['category_second_list','id'=>$v->id], ['class' => 'btn']); ?>
+				<?= Html::a($v->name, ['category_second_list','id'=>$v->id], ['class' => 'btn','onclick'=>'return false;']); ?>
 			</div>
 		<?php }} ?>
 	</div>
@@ -40,7 +40,7 @@ $this->params['breadcrumbs'][] = $this->title;
 						<?= Html::a($v2->name, ['create','id'=>$v2->id], ['class' => 'btn']); ?>
 					<?php } ?>
 				</p>
-				<?= Html::a($v->name, ['category_second_list','id'=>$v->id], ['class' => 'btn']); ?>
+				<?= Html::a($v->name, ['category_second_list','id'=>$v->id], ['class' => 'btn','onclick'=>'return false;']); ?>
 			</div>
 		<?php }} ?>
 	</div>
