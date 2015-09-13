@@ -43,6 +43,20 @@ class CategoryController extends Controller
             'dataProvider' => $dataProvider,
         ]);
     }
+	
+	public function actionGetseed(){
+		$c = Category::find()->all();
+		$data = '-----------------------------up------------------------------------<br />';
+		foreach($c as $v){
+			$data .= ('$this->insert("category",["id"=>"'.$v->id.'","name"=>"'.$v->name.'","parent_id"=>"'.$v->parent_id.'","order_nm"=>"'.$v->order_nm.'"]);<br />');
+		}
+		
+		$data .= '-----------------------------down------------------------------------<br />';
+		foreach($c as $v){
+			$data .= ('$this->delete("category",["id"=>"'.$v->id.'"]);<br />');
+		}
+		echo $data;
+	}
 
     /**
      * Displays a single Category model.

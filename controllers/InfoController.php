@@ -33,6 +33,32 @@ class InfoController extends Controller
             'categories' => $categories,
         ]);
     }
+	
+	public function actionUpload_iframe($type){
+		$this->enableCsrfValidation = false;
+		
+        if (Yii::$app->request->isPost){
+			$err = '';
+			if($_FILES['photo']['size'] >= '4096000'){
+				$err = '请不要上传超过4M的文件！';
+			}
+			if(!in_array($_FILES['photo']['type'],array('image/jpeg','image/png','image/gif'))){
+				$err = '请选择后缀名为jpg,png,gif的图片上传！';
+			}
+			
+			if($err){
+				yii::$app->session->setFlash('upload_err', $err);
+			}else{
+				print_r($_FILES);
+				//move_uploaded_file($_FILES['photo']['tmp_name'],Yii::getAlias("@webroot").'/info_upload/temp/test.jpg');
+			}
+			
+			return $this->renderPartial('upload_iframe',['type'=>$type]);
+			
+        } else {
+            return $this->renderPartial('upload_iframe');
+        }
+	}
 
     public function behaviors()
     {
