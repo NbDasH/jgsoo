@@ -38,3 +38,9 @@
 .list_form_road_gt{ float: left;height: 30px; line-height: 30px; font-size: 15px; color: #666; margin:0 20px; width: 30px; background: url('../images/list_form_road_gt.png'); }
 
 .upload_iframe{ margin-left:170px; height:40px; width:600px; padding:0;}
+
+.info_delimg_btn{ position:absolute; right:8px; top:8px; background: url('../images/info_img_del.png'); height:20px; width:20px;}
+
+.iframe_show_photo{ margin-left:165px;}
+
+.iframe_show_photo div{ padding:5px;}
