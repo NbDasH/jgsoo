@@ -451,4 +451,34 @@ class Info extends \yii\db\ActiveRecord
     public function get_view($id){
         return Category::findOne($id)->parent_id;
     }
+	
+	public function photo_resize($name,$tmp,$x,$y,$save_src){
+		$file_type = end(explode('.',$name));
+		
+		switch($file_type){
+			case 'jpg':
+				$o_img = imagecreatefromjpeg($tmp);
+				break;
+			case 'png':
+				$o_img = imagecreatefrompng($tmp);
+				break;
+			case 'gif':
+				$o_img = imagecreatefromgif($tmp);
+				break;
+		}
+		
+		$o_x = imagesx($o_img);
+		$o_y = imagesy($o_img);
+		
+		$r_x = $x/$o_x;
+		$r_y = $y/$o_y;
+		$r = $r_x < $r_y ? $r_y : $r_x;
+		
+		$img = imagecreatetruecolor($x, $y);
+		
+		imagecopyresampled($img,$o_img,0,0,0,0,$o_x*$r,$o_y*$r,$o_x,$o_y);
+		
+		imagejpeg($img,$save_src);
+		
+	}
 }

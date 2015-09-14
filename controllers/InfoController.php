@@ -48,12 +48,16 @@ class InfoController extends Controller
 			
 			if($err){
 				yii::$app->session->setFlash('upload_err', $err);
+				return $this->renderPartial('upload_iframe');
 			}else{
-				print_r($_FILES);
-				//move_uploaded_file($_FILES['photo']['tmp_name'],Yii::getAlias("@webroot").'/info_upload/temp/test.jpg');
+				$file_name = md5(rand(1,10000).time());
+				Info::photo_resize($_FILES['photo']['name'],$_FILES['photo']['tmp_name'],200,200,Yii::getAlias("@webroot").'/info_upload/temp/'.$file_name.'.jpg');
+				Info::photo_resize($_FILES['photo']['name'],$_FILES['photo']['tmp_name'],100,100,Yii::getAlias("@webroot").'/info_upload/temp/'.$file_name.'_min.jpg');
+				
+				return $this->renderPartial('upload_iframe',['type'=>$type,'file_name'=>$file_name]);
 			}
 			
-			return $this->renderPartial('upload_iframe',['type'=>$type]);
+			
 			
         } else {
             return $this->renderPartial('upload_iframe');
