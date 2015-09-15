@@ -9,7 +9,7 @@ use yii\widgets\ActiveForm;
 /* @var $form yii\widgets\ActiveForm */
 
 Yii::$app->view->registerCssFile('/css/form.css');
-Yii::$app->view->registerJsFile('js/upload_img.js');
+Yii::$app->view->registerJsFile('/js/upload_img.js');
 
 ?>
 
