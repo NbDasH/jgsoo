@@ -9,6 +9,7 @@ use yii\widgets\ActiveForm;
 /* @var $form yii\widgets\ActiveForm */
 
 Yii::$app->view->registerCssFile('/css/form.css');
+Yii::$app->view->registerJsFile('js/upload_img.js');
 
 ?>
 
@@ -83,8 +84,7 @@ Yii::$app->view->registerCssFile('/css/form.css');
 
         
         <iframe id="iframe_<?php $model->type; ?>" class="upload_iframe" frameborder="0" scrolling="no" seamless src="<?= Url::to(['info/upload_iframe','type'=>$model->type]); ?>"></iframe>
-        <div id="iframe_show_<?= $model->type; ?>">
-        </div>
+        <div id="iframe_show_<?= $model->type; ?>" class="iframe_show_photo"></div>
         
         
         <?= $form->field($model, 'content')->textarea(['rows' => 6]) ?>
@@ -164,7 +164,7 @@ Yii::$app->view->registerCssFile('/css/form.css');
         <?= Html::button('+', ['class'=>'btn other_btn']) ?>
         <hr style="margin:20px 0;" />
         <?= Html::submitButton('确认并发布', ['class' => 'btn list_submit_btn']) ?>
-
+		
         <?= $form->field($model, 'type')->hiddenInput()->label(''); ?>
 
         <?php ActiveForm::end(); ?>

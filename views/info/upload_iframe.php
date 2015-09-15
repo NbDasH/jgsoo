@@ -46,12 +46,12 @@ AppAsset::register($this);
 	if(isset($type) & isset($file_name)){
 		Yii::$app->view->registerJs('
 			$(document).ready(function(){
-				$("#iframe_show_'.$type.'", window.parent.document).prepend("<img src=\"'.Url::base().'/info_upload/temp/'.$file_name.'_min.jpg\" alt=\"'.$file_name.'\" />");
+				$("#iframe_show_'.$type.'", window.parent.document).prepend("<div style=\"display:inline-block;position:relative;\"><span class=\"info_delimg_btn\"></span><img src=\"'.Url::base().'/info_upload/temp/'.$file_name.'_min.jpg\" alt=\"'.$file_name.'\" /></div>");
 				var data = "";
 				$("#iframe_show_'.$type.' img", window.parent.document).each(function(){
 					data += $(this).attr("alt")+";";
 				});
-				$("#info_photo_1", window.parent.document).val(data.substr(0,data.length-1));
+				$("#info_photo_'.$type.'", window.parent.document).val(data.substr(0,data.length-1));
 			});
 		');
 	}
