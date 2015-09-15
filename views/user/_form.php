@@ -7,7 +7,7 @@ use yii\widgets\ActiveForm;
 /* @var $model app\models\User */
 /* @var $form yii\widgets\ActiveForm */
 
-Yii::$app->view->registerCssFile('css/form.css');
+Yii::$app->view->registerCssFile('/css/form.css');
 
 ?>
 
