@@ -65,34 +65,9 @@ AppAsset::register($this);
 </div>
 
 <div class="index_head">
-	
-	<!--
-	<?= Html::a('<img class="logo" src="'.Url::base().'/images/logo.png" width="100px" />', ['site/index']) ?>
-	<div class="search_div">
-		<form>
-			<input type="text" name="search" class="search_input" value="找房子找工作找装修" />
-			<input type="button" value="搜 索" class="search_btn" />
-		</form>
-	</div>
-	<div class="top_add_div">
-		<?= Html::a('免费发布信息', ['info/category_list'],['class'=>'top_add_btn']) ?>
-		<?= Html::a('修改／删除信息', ['site/index']) ?>
-	</div>
-	-->
 </div>
-<!--
-<div class="index_nav">
-	<div class="index_inner_nav">
-		<?= Html::a('首页', ['site/index']) ?>
-		<?= Html::a('头条活动', ['category/index']) ?>
-		<?= Html::a('租房', ['view']) ?>
-		<?= Html::a('二手车', ['view']) ?>
-		<?= Html::a('本地服务', ['view']) ?>
-		<?= Html::a('联系我们', ['view']) ?>
-	</div>
-</div>
--->
-<div style="background:#eee; padding:20px 0 20px 0;">
+
+<div style="background:url('../images/login_bg.jpg'); background-size:cover; padding:20px 0 20px 0; min-height:500px; ">
 	<?= $content ?>
 </div>
 

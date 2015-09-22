@@ -6,6 +6,7 @@ use Yii;
 use app\models\Info;
 use app\models\Category;
 use yii\data\ActiveDataProvider;
+use yii\data\Pagination;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -15,6 +16,40 @@ use yii\filters\VerbFilter;
  */
 class InfoController extends Controller
 {
+	
+	public function actionSearch($keyword){
+		
+		$this->layout = 'create_list';
+		$key = explode(' ',$keyword);
+		$key = array_filter($key);
+		$info_c = Info::find()
+					->select(['category_id'])
+					->where(['or like','title',$key])
+					->groupBy(['category_id'])
+					->all();
+					
+		$query = Info::find()->where(['and',['category_id' => isset($info_c[0]) ? $info_c[0]->category_id : ''],['or like','title',$key]]);
+		$countQuery = clone $query;
+		$pages = new Pagination(['totalCount' => $countQuery->count()]);
+		$pages->setPageSize(10,true);
+		$data = $query->offset($pages->offset)
+					->limit($pages->limit)
+					->all();
+		
+		foreach($key as $k => $v){
+			$key[$k] = "/(".$v.")/i";
+		}
+		
+		foreach($data as $k => $v){
+			$data[$k]->title = preg_replace($key,"<span style='color:red;'>$1</span>",$data[$k]->title);
+		}
+		
+		return $this->render('search', [
+            'info_c' => $info_c,
+			'data'=>$data,
+			'pages' => $pages,
+        ]);
+	}
 
     public function actionCategory_list()
     {

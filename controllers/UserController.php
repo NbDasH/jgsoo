@@ -60,6 +60,8 @@ class UserController extends Controller
      */
     public function actionCreate()
     {
+		$this->layout = 'login';
+		
         $model = new User();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {

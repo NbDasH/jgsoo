@@ -9,6 +9,8 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
+use yii\widgets\ActiveForm;
+
 
 AppAsset::register($this);
 ?>
@@ -29,10 +31,13 @@ AppAsset::register($this);
 <div class="index_head">
 	<?= Html::a('<img class="logo" src="'.Url::base().'/images/logo.png" width="100px" />', ['site/index']) ?>
 	<div class="search_div">
-		<form>
-			<input type="text" name="search" class="search_input" value="找房子找工作找装修" />
-			<input type="button" value="搜 索" class="search_btn" />
-		</form>
+		<?php $form = ActiveForm::begin([
+			'action' => '/info/search',
+			'method'=>'get',
+		]); ?>
+			<input type="text" name="keyword" class="search_input" value="找房子找工作找装修" />
+			<input type="submit" value="搜 索" class="search_btn" />
+		<?php ActiveForm::end(); ?>
 	</div>
 	<div class="top_add_div">
 		<?= Html::a('免费发布信息', ['info/category_list'],['class'=>'top_add_btn']) ?>
@@ -58,12 +63,26 @@ AppAsset::register($this);
 	</div>
 </div>
 
-<div class="foot">
-    <div class="inner_footer">
-        <div>©2015 jgsoo.com, All Rights Reserved. 本站发布的所有内容，未经许可，不得转载，详见《知识产权声明》、《用户使用协议》</div>
-        <div>增值电信业务经营许可证：赣B2-20040012 互联网地图服务资质：乙测资字31202063 Email:<a href="mailto:dash@jgsoo.com">dash@jgsoo.com</a> <a href="mailto:jgsyu@jgsoo.com">jgsyu@jgsoo.com</a></div>
-    </div>
-</div>
+<?= $this->render('_foot') ?>
+
+<?php Yii::$app->view->registerJs('
+    $(document).ready(function(){
+		var old_text = $(".search_input").val();
+		$(".search_input").focus(function(){
+			if($(this).val() == old_text){
+				$(this).val("");
+				$(this).css("color","#333");
+			}
+		});
+		$(".search_input").blur(function(){
+			if($(this).val() == ""){
+				$(this).val(old_text);
+				$(this).css("color","#aaa");
+			}
+		});
+	});
+');?>
+
 
 <?php $this->endBody() ?>
 </body>
