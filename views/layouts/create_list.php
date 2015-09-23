@@ -107,7 +107,6 @@ $(document).ready(function(){
 		data.showapi_res_body.now.weather+" 实时温度:"+
 		data.showapi_res_body.now.temperature+"℃"
 		);
-		console.log(data);
 	});
 });
 ');?>

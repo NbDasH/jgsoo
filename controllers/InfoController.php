@@ -77,7 +77,7 @@ class InfoController extends Controller
 			if($_FILES['photo']['size'] >= '4096000'){
 				$err = '请不要上传超过4M的文件！';
 			}
-			if(!in_array($_FILES['photo']['type'],array('image/jpeg','image/png','image/gif'))){
+			if(!in_array($_FILES['photo']['type'],array('image/jpeg','image/pjpeg','image/png','image/x-png','image/gif'))){
 				$err = '请选择后缀名为jpg,png,gif的图片上传！';
 			}
 			

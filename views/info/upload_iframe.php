@@ -28,16 +28,22 @@ AppAsset::register($this);
     <?= Html::Button('点击上传图片', ['class' => 'btn','style'=>'background:red; color:#fff;','id'=>'upload_btn']) ?>
     <span id="err_span" style=" height:34px; line-height:34px; color:#a94442; display:inline-block; padding-left:20px;"><?= yii::$app->session->getFlash('upload_err'); ?></span>
     <input name="photo" type="file" id="photo_input" style=" visibility:hidden;" accept=".jpg,.png,.gif" />
+    
     <?php ActiveForm::end(); ?>
     <?php Yii::$app->view->registerJs('
 		$(document).ready(function(){
-			$("#upload_btn").click(function(){
-				$("#photo_input").click();
-			});
+			if (!$.support.leadingWhitespace) {
+				$("#photo_input").css({"visibility":"visible","position":"absolute","font-size":"20px","left":"-210px","padding":"0","top":"0","filter":"alpha(opacity:0)"});
+				$("#upload_btn").css("padding","3px");
+			}else{
+				$("#upload_btn").click(function(){
+					$("#photo_input").click();
+				});
+			}
 			$("#photo_input").change(function(){
-				$("#upload_form").submit();
 				$("#err_span").html("正在上传，请稍侯...");
 				$("#upload_btn").hide();
+				$("#upload_form").submit();
 			});
 		});
 	'); ?>
