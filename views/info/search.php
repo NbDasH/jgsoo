@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\grid\GridView;
 use yii\widgets\LinkPager;
 
@@ -11,19 +12,28 @@ $this->title = 'Infos';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="info_index">
-	<div>
-    	类别：<?php foreach($info_c as $i){echo $i->category->name.' &nbsp; ';} ?><br />
+	<div style="border:#aaa 1px solid; padding:10px;">
+    	类别：
+		<?php
+        	foreach($info_c as $i){
+				echo '<a href="'.Url::current(['category_id' => $i->category->id]).'">'.$i->category->name.'</a> &nbsp; ';
+			}
+		?>
+        <br />
         价格区间：<br />
         新旧：<br />
         搜索：<br />
     </div>
-	<?php foreach($data as $v){echo $v->title.'<br />';} ?>
-    
+    <div style="border-top:red 3px solid; padding:10px; margin-top:30px;">
+    <div>只看有图 只看今天发布的信息 
+		<?= isset(Yii::$app->request->get()['time_desc']) && Yii::$app->request->get()['time_desc'] == 1 ? Html::a('按时间',Url::current(['time_desc'=>0])) : Html::a('按时间',Url::current(['time_desc'=>1])) ?>
+		<?= isset(Yii::$app->request->get()['price_desc']) && Yii::$app->request->get()['price_desc'] == 1 ? Html::a('按价格',Url::current(['price_desc'=>0])) : Html::a('按价格',Url::current(['price_desc'=>1])) ?>
+    </div>
+	<?php foreach($data as $v){ ?>
+		<?= $v->title.'<br />'; ?>
+	<?php } ?>
+    </div>
     <?php echo LinkPager::widget([
         'pagination' => $pages,
 	]); ?>
-</div>
-
-<div class="info_other" style=" width:500px; text-align:center; margin:20px auto 0; background:#e0e0e0; padding:10px; border-radius:5px;">
-	找不到合适的类目？觉得类目设置不合理？ <a href="#" style="color:#F5400D;">点此反馈告诉我们</a>
 </div>

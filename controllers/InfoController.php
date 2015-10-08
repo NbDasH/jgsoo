@@ -17,7 +17,7 @@ use yii\filters\VerbFilter;
 class InfoController extends Controller
 {
 	
-	public function actionSearch($keyword){
+	public function actionSearch($keyword,$category_id=NULL,$time_desc=NULL,$price_desc=NULL){
 		
 		$this->layout = 'create_list';
 		$key = explode(' ',$keyword);
@@ -27,8 +27,32 @@ class InfoController extends Controller
 					->where(['or like','title',$key])
 					->groupBy(['category_id'])
 					->all();
-					
-		$query = Info::find()->where(['and',['category_id' => isset($info_c[0]) ? $info_c[0]->category_id : ''],['or like','title',$key]]);
+		$query = Info::find();
+		
+		if(isset($category_id)){	
+			$query->where(['and',['category_id' => $category_id],['or like','title',$key]]);
+		}else{
+			$query->where(['and',['category_id' => isset($info_c[0]) ? $info_c[0]->category_id : ''],['or like','title',$key]]);
+		}
+		
+		switch($price_desc){
+			case 0 :
+				$query->orderBy('price desc');
+				break;
+			case 0 :
+				$query->orderBy('price asc');
+				break;
+		}
+		
+		switch($time_desc){
+			case 0 :
+				$query->orderBy('time desc');
+				break;
+			case 0 :
+				$query->orderBy('time asc');
+				break;
+		}
+		
 		$countQuery = clone $query;
 		$pages = new Pagination(['totalCount' => $countQuery->count()]);
 		$pages->setPageSize(10,true);
