@@ -26,8 +26,8 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
     <div style="border-top:red 3px solid; padding:10px; margin-top:30px;">
     <div>只看有图 只看今天发布的信息 
-		<?= isset(Yii::$app->request->get()['time_desc']) && Yii::$app->request->get()['time_desc'] == 1 ? Html::a('按时间',Url::current(['time_desc'=>0])) : Html::a('按时间',Url::current(['time_desc'=>1])) ?>
-		<?= isset(Yii::$app->request->get()['price_desc']) && Yii::$app->request->get()['price_desc'] == 1 ? Html::a('按价格',Url::current(['price_desc'=>0])) : Html::a('按价格',Url::current(['price_desc'=>1])) ?>
+		<?= isset(Yii::$app->request->get()['time_desc']) && Yii::$app->request->get()['time_desc'] == 1 ? Html::a('按时间↑',Url::current(['time_desc'=>0])) : Html::a('按时间↓',Url::current(['time_desc'=>1])) ?>
+		<?= isset(Yii::$app->request->get()['price_desc']) && Yii::$app->request->get()['price_desc'] == 1 ? Html::a('按价格↑',Url::current(['price_desc'=>0])) : Html::a('按价格↓',Url::current(['price_desc'=>1])) ?>
     </div>
 	<?php foreach($data as $v){ ?>
 		<?= $v->title.'<br />'; ?>
