@@ -481,4 +481,36 @@ class Info extends \yii\db\ActiveRecord
 		imagejpeg($img,$save_src);
 		
 	}
+	
+	public function get_today(){
+		return strtotime(date("Y-m-d",$this->time));
+	}
+	
+	public function move_images(){
+		if(empty($this->photo)){
+			return false;
+		}
+		if(!is_dir(Yii::getAlias("@webroot").'/info_upload/'.$this->get_today())){
+			mkdir(Yii::getAlias("@webroot").'/info_upload/'.$this->get_today());
+		}
+		$photos = explode(';',$this->photo);
+		
+		foreach($photos as $p){
+			rename(Yii::getAlias("@webroot").'/info_upload/temp/'.$p.'.jpg',Yii::getAlias("@webroot").'/info_upload/'.$this->get_today().'/'.$p.'.jpg');
+			rename(Yii::getAlias("@webroot").'/info_upload/temp/'.$p.'_min.jpg',Yii::getAlias("@webroot").'/info_upload/'.$this->get_today().'/'.$p.'_min.jpg');
+		}
+	}
+	
+	public function first_image($is_min = NULL){
+		if(empty($this->photo)){
+			return '/images/no_image.jpg';
+		}
+		
+		$photos = explode(';',$this->photo);
+		if($is_min){
+			return '/info_upload/'.$this->get_today().'/'.$photos[0].'_min.jpg';
+		}else{
+			return '/info_upload/'.$this->get_today().'/'.$photos[0].'.jpg';
+		}
+	}
 }

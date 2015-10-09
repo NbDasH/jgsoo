@@ -17,7 +17,7 @@ use yii\filters\VerbFilter;
 class InfoController extends Controller
 {
 	
-	public function actionSearch($keyword,$category_id=NULL,$time_desc=NULL,$price_desc=NULL){
+	public function actionSearch($keyword,$category_id=NULL,$order=NULL,$image_only=NULL,$h24_only=NULL){
 		
 		$this->layout = 'create_list';
 		$key = explode(' ',$keyword);
@@ -29,28 +29,22 @@ class InfoController extends Controller
 					->all();
 		$query = Info::find();
 		
-		if(isset($category_id)){	
+		if($category_id){	
 			$query->where(['and',['category_id' => $category_id],['or like','title',$key]]);
 		}else{
 			$query->where(['and',['category_id' => isset($info_c[0]) ? $info_c[0]->category_id : ''],['or like','title',$key]]);
 		}
 		
-		switch($price_desc){
-			case 0 :
-				$query->orderBy('price desc');
-				break;
-			case 0 :
-				$query->orderBy('price asc');
-				break;
+		if($image_only){
+			$query->andWhere(['and','photo is not null']);
 		}
 		
-		switch($time_desc){
-			case 0 :
-				$query->orderBy('time desc');
-				break;
-			case 0 :
-				$query->orderBy('time asc');
-				break;
+		if($h24_only){
+			$query->andWhere(['and','time > '.strtotime("-1 day")]);
+		}
+		
+		if($order){
+			$query->orderBy(str_replace('_',' ',$order));
 		}
 		
 		$countQuery = clone $query;
@@ -111,7 +105,7 @@ class InfoController extends Controller
 			}else{
 				$file_name = md5(rand(1,10000).time());
 				Info::photo_resize($_FILES['photo']['name'],$_FILES['photo']['tmp_name'],200,200,Yii::getAlias("@webroot").'/info_upload/temp/'.$file_name.'.jpg');
-				Info::photo_resize($_FILES['photo']['name'],$_FILES['photo']['tmp_name'],100,100,Yii::getAlias("@webroot").'/info_upload/temp/'.$file_name.'_min.jpg');
+				Info::photo_resize($_FILES['photo']['name'],$_FILES['photo']['tmp_name'],160,100,Yii::getAlias("@webroot").'/info_upload/temp/'.$file_name.'_min.jpg');
 				
 				return $this->renderPartial('upload_iframe',['type'=>$type,'file_name'=>$file_name]);
 			}
@@ -178,7 +172,8 @@ class InfoController extends Controller
             $model->user_id = 1;
         }
 
-        if ($model->load(Yii::$app->request->post())){ // && $model->save()) {
+        if ($model->load(Yii::$app->request->post()) && $model->save()){ // ) {
+			$model->move_images();
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             $view = Info::get_view($id);
