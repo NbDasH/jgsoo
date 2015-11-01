@@ -12,7 +12,8 @@ Yii::$app->view->registerCssFile('/css/form.css');
 ?>
 
 <div class="user-form">
-
+	<div class="login_div">
+    <h1><?= Html::encode($this->title) ?></h1>
     <?php $form = ActiveForm::begin([
     'fieldConfig' => ['template' => "<div class='list_form_top'>".
                                         "<div class='list_form_label'>{label}</div>".
@@ -36,5 +37,5 @@ Yii::$app->view->registerCssFile('/css/form.css');
     </div>
 
     <?php ActiveForm::end(); ?>
-
+	</div>
 </div>

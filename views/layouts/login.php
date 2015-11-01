@@ -67,7 +67,7 @@ AppAsset::register($this);
 <div class="index_head">
 </div>
 
-<div style="background:url('../images/login_bg.jpg'); background-size:cover; padding:20px 0 20px 0; min-height:500px; ">
+<div style="background:url('../images/login_bg.jpg'); background-size:cover; padding:20px 0 20px 0; min-height:550px; ">
 	<?= $content ?>
 </div>
 

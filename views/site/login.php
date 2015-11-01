@@ -11,6 +11,7 @@ $this->title = '用户登录';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-login">
+	<div class="login_div">
     <h1><?= Html::encode($this->title) ?></h1>
 
     <?php $form = ActiveForm::begin([
@@ -37,4 +38,5 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
 
     <?php ActiveForm::end(); ?>
+    </div>
 </div>

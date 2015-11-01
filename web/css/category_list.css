@@ -14,7 +14,7 @@
 .info_left_p,.info_right_p{ position:absolute; width:450px; left:98px; top:0; display:none; min-height:150px; background:#eee; border:#aaa 1px solid;}
 
 .top_nav{ float:right;}
-.top_nav a{ display:block; line-height:30px; padding:0 10px; color:#777;}
+.top_nav a{ display:block; line-height:50px; padding:0 10px; color:#777;}
 .top_nav a:hover,.top_menu a:hover{ color:#ff3d29;}
 .top_nav ul,.top_nav li{list-style:none; margin:0; padding:0;}
 .top_nav > ul > li{ float:left; position:relative;}
@@ -25,9 +25,9 @@
 /*顶部菜单*/
 .top_menu{ height:30px; width:1160px; margin:0 auto; padding:0 20px; color:#666;}
 .top_menu a{color:#777;}
-.top_menu_bg{ height:30px; background:#eee; width:100%; min-width:1200px;}
-.top_login{ height:30px; line-height:30px; float:left; margin-left:30px;}
-.weather{ float:left; line-height:30px;}
+.top_menu_bg{ height:55px; background:#eee; width:100%; min-width:1200px; line-height:50px;}
+.top_login{ height:50px; line-height:50px; float:left; margin-left:30px;}
+.weather{ float:left; line-height:50px;}
 
 /*选择类目 填写信息 标识*/
 .list_form_road2{ width: 600px; margin: 0 auto; padding-bottom: 10px;}
@@ -36,6 +36,9 @@
 .list_form_road_div2 .list_form_road_lock2{background: url('../images/list_form_road_lock.png');}
 .list_form_road_div2 p{ float: left; height: 30px; line-height: 30px; font-size: 20px; color: #666; padding-left:20px}
 .list_form_road_gt2{ float: left;height: 30px; line-height: 30px; font-size: 15px; color: #666; margin:0 20px; width: 30px; background: url('../images/list_form_road_gt.png'); }
+
+.site-login,.user-form{ width:1200px; margin:0 auto;}
+.login_div{ float:right; width:400px; background:#fff; background:rgba(255,255,255,0.8); border-radius:5px; border:#aaa 1px solid; padding:20px 50px; margin-top:40px;}
 
 
 
