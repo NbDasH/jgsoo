@@ -144,7 +144,7 @@ class Info extends \yii\db\ActiveRecord
                     'name' => '联系人',
                     'phone' => '联系电话',
                     'wechat' => 'QQ',
-                    'content' => '服务介绍',
+                    'content' => '详细介绍',
                     'photo' => '店铺外貌',
 					'select1' => '类别',
                     'other1' => '其他描述',

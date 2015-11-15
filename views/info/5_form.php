@@ -3,6 +3,8 @@
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\ActiveForm;
+use yii\helpers\ArrayHelper;
+use app\models\Category;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Info */
@@ -40,18 +42,26 @@ Yii::$app->view->registerCssFile('/css/form.css');
 	?>
 
 	<?= $form->field($model, 'title')->textInput(['maxlength' => true,'class'=>'form-control list_form_title'])->label('<span>*</span> 标题'); ?>
+    <?php
+		$result = ArrayHelper::map(Category::find()->where(['id'=>$id])->one()->parent->categories, 'id', 'name');
+		if(!$model->select1){
+			$model->select1 = $id;
+		}
+	?>
+    <?= $form->field($model, 'select1')->dropDownList($result)->label('<span>*</span> 类别'); ?>
     
-    <?= $form->field($model, 'select1')->dropDownList([''=>'','1'=>'1']);  ?>
+    <?= $form->field($model, 'addr')->textarea(['rows' => 3])->label('<span>*</span> 详细地址'); ?>
     
-    <?= $form->field($model, 'addr')->textarea(['rows' => 3]); ?>
+    <?= $form->field($model, 'name')->textInput(['maxlength' => true])->label('<span>*</span> 联系人');  ?>
     
-    <?= $form->field($model, 'name')->textInput(['maxlength' => true]);  ?>
-    
-    <?= $form->field($model, 'phone')->textInput();  ?>
+    <?= $form->field($model, 'phone')->label('<span>*</span> 联系电话');  ?>
     
     <?= $form->field($model, 'wechat')->textInput(['maxlength' => true]) ?>
     
-    <?= $form->field($model, 'content')->textarea(['rows' => 6]) ?>
+    <iframe id="iframe_<?php $model->type; ?>" class="upload_iframe" frameborder="0" scrolling="no" seamless src="<?= Url::to(['info/upload_iframe','type'=>$model->type]); ?>"></iframe>
+    <div id="iframe_show_<?= $model->type; ?>" class="iframe_show_photo"></div>
+    
+    <?= $form->field($model, 'content')->textarea(['rows' => 6])->label('<span>*</span> 服务介绍') ?>
     
      <h3 class="list_form_h3">补充信息</h3>
     <hr style="margin-bottom:10px;" />
@@ -70,6 +80,7 @@ Yii::$app->view->registerCssFile('/css/form.css');
     <hr style="margin:20px 0;" />
     <?= Html::submitButton('确认并发布', ['class' => 'btn list_submit_btn']) ?>
     
+    <?= $form->field($model, 'photo')->hiddenInput(['id'=>'info_photo_'.$model->type])->label(''); ?>
     <?= $form->field($model, 'type')->hiddenInput()->label(''); ?>
     
     <?php ActiveForm::end(); ?>
