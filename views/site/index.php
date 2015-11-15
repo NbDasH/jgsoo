@@ -104,8 +104,11 @@ $this->title = '井冈搜-打造井冈山最专业的信息网站';
 </div>
 -->
 
+<!--
 <embed src="http://imga.tiboo.cn/a/2015/1712231_0821080010.swf" width="1200" height="70" />
 <embed src="http://imga.tiboo.cn/a/2015/2023247_0818113329.swf" width="1200" height="70" />
+-->
+<img src="<?= Url::base(); ?>/images/ad.jpg" width='1200' height='200' />
 
 <div class='index_main'>
     <?php $parents = Category::find()->where(['parent_id'=>2])->orderBy('order_nm desc')->all(); ?>
